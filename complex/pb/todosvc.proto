@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb;
+
+message GetTodosRequest {
+  uint64 userId = 1;
+}
+
+message GetTodosResponse {
+  repeated Todo todos = 1;
+}
+
+message Todo {
+  uint64 id = 1;
+  string name = 2;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Go Kit Example</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+    <v-app>
+      <v-form ref="form">
+        <v-text-field
+          v-model="newTodo"
+          label="Todo Name"
+        >
+        </v-text-field>
+        <v-btn
+          color="success"
+          @click="submit"
+        >
+          Submit
+        </v-btn>
+      </v-form>
+      <v-list>
+        <v-list-tile
+          v-for="(todo, index) in todos"
+          :key="todo"
+        >
+          <v-checkbox @click="remove(index)">
+          </v-checkbox>
+          <v-list-tile-content v-text="todo"> 
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+      <v-btn
+        color="primary"
+        @click="getTodos"
+      >
+      Get all my todos
+      </v-btn>
+    </v-app>
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.js"></script>
+  <script src="/static/index.js"></script>
+</body>
+</html>
