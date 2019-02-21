@@ -11,7 +11,7 @@ type Todo struct {
 }
 
 type Service interface {
-	GetTodos(ctx context.Context) ([3]Todo, error)
+	GetTodos(ctx context.Context) ([]Todo, error)
 }
 
 func New(logger log.Logger) Service {
@@ -29,18 +29,18 @@ func NewBasicService() Service {
 
 type basicService struct{}
 
-func (s basicService) GetTodos(_ context.Context) ([3]Todo, error) {
-	todo1 := &Todo{
+func (s basicService) GetTodos(_ context.Context) ([]Todo, error) {
+	todo1 := Todo{
 		Name: "go to the grocery store",
 	}
-	todo2 := &Todo{
+	todo2 := Todo{
 		Name: "vacuum",
 	}
-	todo3 := &Todo{
+	todo3 := Todo{
 		Name: "learn go",
 	}
 
-	todos := [3]Todo{*todo1, *todo2, *todo3}
+	todos := []Todo{todo1, todo2, todo3}
 
 	return todos, nil
 }

@@ -19,7 +19,7 @@ type loggingMiddleware struct {
 	next   Service
 }
 
-func (mw loggingMiddleware) GetTodos(ctx context.Context) (todos [3]Todo, err error) {
+func (mw loggingMiddleware) GetTodos(ctx context.Context) (todos []Todo, err error) {
 	defer func() {
 		mw.logger.Log("method", "GetTodos", "err", err)
 	}()

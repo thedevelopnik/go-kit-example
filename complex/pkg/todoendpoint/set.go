@@ -33,7 +33,7 @@ func MakeGetTodosEndpoint(s todoservice.Service) endpoint.Endpoint {
 			return nil, err
 		}
 
-		resp := &pb.GetTodosResponse{
+		resp := pb.GetTodosResponse{
 			Todos: todos,
 		}
 		return resp, nil
