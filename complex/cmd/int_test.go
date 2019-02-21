@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"bytes"
@@ -12,7 +12,7 @@ import (
 )
 
 func TestHappyPath(t *testing.T) {
-	go start()
+	go Execute()
 	j, err := json.Marshal(struct{ userId uint64 }{userId: 1})
 	if err != nil {
 		t.Error(err)
